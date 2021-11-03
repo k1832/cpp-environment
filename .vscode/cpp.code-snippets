@@ -1,0 +1,95 @@
+{
+	"cin": {
+		"prefix": "cin",
+		"body": "cin >> $0;"
+	},
+	"cout": {
+		"prefix": "cout",
+		"body": "cout << $0;"
+	},
+	// "vector": {
+	// 	"prefix": "vector",
+	// 	"body": "vector<$1> $0;",
+	// },
+	"map": {
+		"prefix": "map",
+		"body": "map<$1,$2> $0;"
+	},
+	"for": {
+		"prefix": "for",
+		"body": [
+			"for(int ${1:i} = ${2:0}; ${1:i} < ${3:n}; ++${1:i}) {",
+			"\t$0",
+			"}"
+		]
+	},
+	"逆順for": {
+		"prefix": "rfor",
+		"body": [
+			"for(int ${1:i} = ${2:n-1}; ${1:i} >= ${3:0}; --${1:i}) {",
+			"\t$0",
+			"}"
+		]
+	},
+	"object for": {
+		"prefix": "forobj",
+		"body": [
+			"for(auto& ${1:itr} : $2) {",
+			"\t$0",
+			"}"
+		]
+	},
+	"逆順object for": {
+		"prefix": "rforobj",
+		"body": [
+			"for (auto ${1:itr} = $2.rbegin(); ${1:itr} != $2.rend(); ++${1:itr}) {",
+			"\t$0",
+			"}"
+		]
+	},
+	"one index": {
+		"prefix": "onedimension",
+		"body": "$1[$2]$0"
+	},
+	"two index": {
+		"prefix": "twodimension",
+		"body": "$1[$2][$3]$0"
+	},
+	"template": {
+		"prefix": "tmpl",
+		"body": [
+			"#include <bits/stdc++.h>",
+			"using namespace std;",
+			"",
+			"using ll = long long;",
+			"#define int long long",
+			"using P = pair<int, int>;",
+			"",
+			"#define LOG(variable) cerr << #variable\":\\t\" << (variable) << \"\\n\"",
+			"#define LOGCON(i, container) for(int (i) = 0; (i) < (container).size(); ++(i)) cerr << (i) << \":\\t\" << (container)[(i)] << \"\\n\"",
+			"#define REP(i, n) for (int i = 0; i < (n); ++i)",
+			"#define REPS(i, r, n) for (int i = (r); i < (n); ++i)",
+			"#define REPR(i, n) for(int i = (n); i >= 0; --i) // from n to 0",
+			"#define REPRS(i, n, r) for(int i = (n); i >= (r); --i) // from n to r",
+			"#define REPOBJ(itr, obj) for(auto itr = (obj).begin(); itr != (obj).end() ; ++itr)",
+			"#define REPROBJ(itr, obj) for(auto itr = (obj).rbegin(), e = (obj).rend(); itr != e; ++itr)",
+			"#define COUTB(x) cout << (x) << \"\\n\"",
+			"#define COUTS(x) cout << (x) << \" \"",
+			"#define PB push_back",
+			"#define SORT(obj) sort((obj).begin(), (obj).end())",
+			"#define SORTR(obj) sort((obj).begin(), (obj).end(), greater<>())",
+			"#define ALL(obj) (obj).begin(), (obj).end()",
+			"#define MOD 1000000007",
+			"#define PI (acos(-1))",
+			"template<typename T = int>",
+			"T in() {T a; cin >> a; return a;}",
+			"/***** MAIN *****/",
+			"signed main() {",
+			"\t$0",
+			"\tcout << \"\\n\";",
+			"\treturn 0;",
+			"}",
+			"/***** MAIN *****/"
+		]
+	}
+}
