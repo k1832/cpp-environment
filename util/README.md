@@ -1,6 +1,6 @@
 # util
 # `convert-source-to-snippet-body.py`
-Convert a source code to a string meant to be used as a snippet body in "*.code-snippets".
+Convert a source code to a string meant to be used as a snippet body in `*.code-snippets`.
 ## Example
 ### FROM
 ```
