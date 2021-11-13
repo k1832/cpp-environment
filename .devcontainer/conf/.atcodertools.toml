@@ -1,8 +1,8 @@
 [codestyle]
 workspace_dir='/workspaces/cpp-environment/atcoder'
-template_file='/workspaces/cpp-environment/main.cpp'
+template_file='/workspaces/cpp-environment/template/main.cpp'
 [compiler]
-compile_command='g++ main.cpp -o main -std=c++17'
+compile_command='g++ -std=c++17 -g main.cpp -o main.out'
 compile_only_when_diff_detected=true
 [tester]
 compile_before_testing=true

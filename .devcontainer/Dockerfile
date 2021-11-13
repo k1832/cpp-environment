@@ -19,8 +19,8 @@ ARG HOME="/home/vscode/"
 COPY ./conf/.atcodertools.toml $HOME
 
 # atcoder-tools aliases and function
-ARG BASHRC_PATH=$HOME".bashrc"
-ARG TMP_BASHRC_PATH=$HOME".bashrc.tmp"
+ARG BASHRC_PATH="${HOME}.bashrc"
+ARG TMP_BASHRC_PATH="${HOME}.bashrc.tmp"
 COPY ./conf/.bashrc ${TMP_BASHRC_PATH}
 RUN echo >> ${BASHRC_PATH}
 RUN cat ${TMP_BASHRC_PATH} >> ${BASHRC_PATH} && rm ${TMP_BASHRC_PATH}
