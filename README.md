@@ -29,3 +29,13 @@ Some things to try:
    - Press <kbd>F5</kbd> to launch the app in the container.
    - Once the breakpoint is hit, try hovering over variables, examining locals, and more.
 
+## [atcoder-tools](https://github.com/kyuridenamida/atcoder-tools)
+TODO: add description
+### aliases, functions
+- at  
+atcoder-tools
+- at-gen  
+Generate contest directory and change directory to the generated directory.  
+Example: `at-gen abc200`
+- at-clean  
+Remove all the directory in `atcoder`.
