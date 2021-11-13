@@ -30,7 +30,6 @@ Some things to try:
    - Once the breakpoint is hit, try hovering over variables, examining locals, and more.
 
 ## [atcoder-tools](https://github.com/kyuridenamida/atcoder-tools)
-TODO: add description
 ### aliases
 - `at`  
 -> `atcoder-tools`
