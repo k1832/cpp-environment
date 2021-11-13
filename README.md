@@ -31,11 +31,20 @@ Some things to try:
 
 ## [atcoder-tools](https://github.com/kyuridenamida/atcoder-tools)
 TODO: add description
-### aliases, functions
-- at  
-atcoder-tools
-- at-gen  
-Generate contest directory and change directory to the generated directory.  
-Example: `at-gen abc200`
-- at-clean  
-Remove all the directory in `atcoder`.
+### aliases
+- `at`  
+-> `atcoder-tools`
+### functions
+- `at-gen`  
+Example: `at-gen abc200`  
+This should run following tasks.
+   1. Generate contest directory.
+   2. Change directory to **abc200**.
+   3. Open `main.cpp` for problem A.
+- `at-open`  
+Example: `at-open abc200`  
+This should run following tasks.
+   1. Change directory to **abc200**.
+   2. Open `main.cpp` for problem A.
+- `at-clean`  
+Remove all files/directory (other than `.gitignore`) in `atcoder/`.
