@@ -7,7 +7,8 @@ at-gen () {
 }
 
 at-open () {
-    first_problem=$(ls /workspaces/cpp-environment/atcoder/$1/ | sort | head -n 1)
-    first_problem_path=/workspaces/cpp-environment/atcoder/$1/$first_problem/
-    cd $first_problem_path; code $first_problem_path/main.cpp
+    contest_directory=/workspaces/cpp-environment/atcoder/$1/
+    first_problem=$(ls $contest_directory | sort | head -n 1)
+    first_problem_path=${contest_directory}${first_problem}/
+    cd $first_problem_path; code ${first_problem_path}main.cpp
 }
