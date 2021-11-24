@@ -2,6 +2,7 @@
 alias at="atcoder-tools"
 
 at-clean () {
+    # Reference: https://qiita.com/na0AaooQ/items/f2759c9b2c49d2210265
     WORK_DIR=/workspaces/cpp-environment/
     atcoder_path=${WORK_DIR}atcoder/
     echo "Are you sure you want to delete all the directories and files in '$atcoder_path'?"
