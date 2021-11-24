@@ -2,8 +2,8 @@
 alias at="atcoder-tools"
 
 at-clean () {
-    home=/workspaces/cpp-environment/
-    atcoder_path=${home}atcoder/
+    WORK_DIR=/workspaces/cpp-environment/
+    atcoder_path=${WORK_DIR}atcoder/
     echo "Are you sure you want to delete all the directories and files in '$atcoder_path'?"
     echo "Input 'y' to confirm or 'n' to cancel."
     read input
@@ -12,7 +12,7 @@ at-clean () {
         echo "Canceled"
     elif [ $input = 'yes' ] || [ $input = 'YES' ] || [ $input = 'y' ] ; then
         echo "Deleting..."
-        find $atcoder_path -mindepth 1 ! -name ".gitignore" | xargs rm -rf && cd $home
+        find $atcoder_path -mindepth 1 ! -name ".gitignore" | xargs rm -rf && cd $WORK_DIR
         echo "done."
     else
         echo $error_msg
