@@ -8,13 +8,12 @@ at-clean () {
     echo "Input 'y' to confirm or 'n' to cancel."
     read input
     error_msg="Please input 'y' or 'n'"
-    if [ -z $input ] ; then
+    if [ -z $input ] || [ $input = 'no' ] || [ $input = 'NO' ] || [ $input = 'n' ] ; then
         echo "Canceled"
     elif [ $input = 'yes' ] || [ $input = 'YES' ] || [ $input = 'y' ] ; then
         echo "Deleting..."
         find $atcoder_path -mindepth 1 ! -name ".gitignore" | xargs rm -rf && cd $home
-    elif [ $input = 'no' ] || [ $input = 'NO' ] || [ $input = 'n' ] ; then
-        echo "Canceled"
+        echo "done."
     else
         echo $error_msg
         at-clean
