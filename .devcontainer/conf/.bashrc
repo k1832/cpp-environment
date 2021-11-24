@@ -1,6 +1,25 @@
 # atcoder-tools
-alias at-clean='find /workspaces/cpp-environment/atcoder/ -mindepth 1 ! -name ".gitignore" | xargs rm -rf && cd /workspaces/cpp-environment/'
 alias at="atcoder-tools"
+
+at-clean () {
+    home=/workspaces/cpp-environment/
+    atcoder_path=${home}atcoder/
+    echo "Are you sure you want to delete all the directories and files in '$atcoder_path'?"
+    echo "Input 'y' to confirm or 'n' to cancel."
+    read input
+    error_msg="Please input 'y' or 'n'"
+    if [ -z $input ] ; then
+        echo "Canceled"
+    elif [ $input = 'yes' ] || [ $input = 'YES' ] || [ $input = 'y' ] ; then
+        echo "Deleting..."
+        find $atcoder_path -mindepth 1 ! -name ".gitignore" | xargs rm -rf && cd $home
+    elif [ $input = 'no' ] || [ $input = 'NO' ] || [ $input = 'n' ] ; then
+        echo "Canceled"
+    else
+        echo $error_msg
+        at-clean
+    fi
+}
 
 at-gen () {
     at gen $1; at-open $1
