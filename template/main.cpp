@@ -2,7 +2,6 @@
 using namespace std;
 
 using ll = long long;
-#define int long long
 using P = pair<int, int>;
 
 #define LOG(variable) cerr << #variable":\t" << (variable) << "\n"
