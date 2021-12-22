@@ -21,12 +21,21 @@ at-clean () {
     fi
 }
 
+get_id_from_url() {
+    # parameter: "https://atcoder.jp/contests/abc226" or "abc226"
+    # return: "abc226"
+    contest_id=$(awk -F '/' '{print((NF==1) ? $1 : $5)}' <<< $1)
+    echo $contest_id
+}
+
 at-gen () {
-    at gen $1; at-open $1
+    contest_id=`get_id_from_url $1`
+    at gen $contest_id; at-open $contest_id
 }
 
 at-open () {
-    contest_directory=/workspaces/cpp-environment/atcoder/$1/
+    contest_id=`get_id_from_url $1`
+    contest_directory=/workspaces/cpp-environment/atcoder/$contest_id/
     first_problem=$(ls $contest_directory | sort | head -n 1)
     first_problem_path=${contest_directory}${first_problem}/
     cd $first_problem_path; code ${first_problem_path}main.cpp
