@@ -13,6 +13,9 @@ RUN sudo apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && sudo apt-get -y install --no-install-recommends python3-distutils
 RUN curl -sSL https://bootstrap.pypa.io/get-pip.py -o get-pip.py && python3 get-pip.py && rm get-pip.py
 RUN pip3 install atcoder-tools
+# Re-install MarkupSafe
+# Ref: https://github.com/kyuridenamida/atcoder-tools/issues/263#issuecomment-1063604744
+RUN pip3 install MarkupSafe==2.0.1
 
 # atcoder-tools configuration
 ARG HOME="/home/vscode/"
