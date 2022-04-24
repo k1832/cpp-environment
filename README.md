@@ -39,11 +39,21 @@ Example: `at-gen abc200`
 This should run following tasks.
    1. Generate contest directory.
    2. Change directory to **abc200**.
-   3. Open `main.cpp` for problem A.
+   3. Open `main.cpp` for problem A.  
+※ This should also work for the contest of which the first problem is not named `A`. See the definition in `.devcontainer/conf/.bashrc` to know how it works.
 - `at-open`  
 Example: `at-open abc200`  
 This should run following tasks.
    1. Change directory to **abc200**.
    2. Open `main.cpp` for problem A.
+- `at-change`  
+Example: `at-change B`  
+This should take you to the directory of **Problem B** in the same contest directory.  
+※ You must be in either _the contest directory_ or _the problem directory_ of the contest directory.  
+Eg.  
+`/workspaces/cpp-environment/atcoder/abc249`  
+or  
+`/workspaces/cpp-environment/atcoder/abc249/A`  
+
 - `at-clean`  
 Remove all files/directory (other than `.gitignore`) in `atcoder/`.

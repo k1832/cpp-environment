@@ -36,7 +36,22 @@ at-gen () {
 at-open () {
     contest_id=`get_id_from_url $1`
     contest_directory=/workspaces/cpp-environment/atcoder/$contest_id/
+
+    # Sort in lexicographical order and get the first one as a first problem to open.
     first_problem=$(ls $contest_directory | sort | head -n 1)
     first_problem_path=${contest_directory}${first_problem}/
     cd $first_problem_path; code ${first_problem_path}main.cpp
+}
+
+at-change () {
+    if [ -d ../$1 ]; then
+        cd ../$1
+    else
+        cd ./$1
+    fi
+    if [ $? -eq 0 ]; then
+        code ./main.cpp && echo Successfully opened $1/main.cpp
+    else
+        echo Failed to open $1/main.cpp
+    fi
 }
