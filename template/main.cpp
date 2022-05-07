@@ -20,8 +20,12 @@ using P = pair<int, int>;
 #define ALL(obj) (obj).begin(), (obj).end()
 #define MOD 1000000007
 #define PI (acos(-1))
+
+template <class T> using max_heap = priority_queue<T>;
+template <class T> using min_heap = priority_queue<T, vector<T>, greater<>>;
 template<typename T = int>
 T in() {T a; cin >> a; return a;}
+
 /***** MAIN *****/
 signed main() {
   
