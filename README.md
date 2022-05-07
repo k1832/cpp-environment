@@ -1,4 +1,11 @@
 # Try Out Development Containers: C++
+## What is this?
+C++ development environment for competitive programming.  
+This environment is meant to be used in VSCode with a Remote - Containers extension.  
+## Advantage
+On any computer, you can use this environment to write/debug C++ source codes for competitive programming.  
+(VSCode and some of its extensions must be installed.)
+
 ## Setting up the development container
 ### VS Code Remote - Containers
 Follow these steps to open this sample in a container using the VS Code Remote - Containers extension:
