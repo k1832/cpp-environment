@@ -4,7 +4,13 @@
         {
             "label": "Build Main",
             "type": "shell",
-            "command": "g++ -std=c++17 -g ${file} -o main.out",
+            "command": "g++ -std=c++17 ${file} -o main.out",
+            "group": "build"
+        },
+        {
+            "label": "Build Main To Debug",
+            "type": "shell",
+            "command": "g++ -std=c++17 -g3 ${file} -o main.out",
             "group": "build"
         },
         {
