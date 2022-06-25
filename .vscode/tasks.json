@@ -4,19 +4,19 @@
         {
             "label": "Build Main",
             "type": "shell",
-            "command": "g++ -std=c++17 ${file} -o main.out",
-            "group": "build"
+            "command": "g++ -std=c++17 ${file} -o ${fileDirname}/${fileBasenameNoExtension}.out",
+            "group": "build",
         },
         {
             "label": "Build Main To Debug",
             "type": "shell",
-            "command": "g++ -std=c++17 -g3 ${file} -o main.out",
+            "command": "g++ -std=c++17 -g3 ${file} -o ${fileDirname}/${fileBasenameNoExtension}.out",
             "group": "build"
         },
         {
             "label": "Build and Run",
             "type": "shell",
-            "command": "./main.out",
+            "command": "${fileDirname}/${fileBasenameNoExtension}.out",
             "group": "build",
             "presentation": {
                 "echo": true,
