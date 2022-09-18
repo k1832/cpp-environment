@@ -18,18 +18,28 @@ using P = pair<int, int>;
 #define SORT(obj) sort((obj).begin(), (obj).end())
 #define SORTR(obj) sort((obj).begin(), (obj).end(), greater<>())
 #define ALL(obj) (obj).begin(), (obj).end()
-#define MOD 1000000007
 #define PI (acos(-1))
-
+/* Conditional template start */
+{% if mod %}
+#define MOD {{ mod }}
+{% else %}
+#define MOD 1000000007
+{% endif %}
+{% if yes_str %}
+const string YES = "{{ yes_str }}";
+{% endif %}
+{% if no_str %}
+const string NO = "{{ no_str }}";
+{% endif %}
+/* Conditional template end */
 template <class T> using max_heap = priority_queue<T>;
 template <class T> using min_heap = priority_queue<T, vector<T>, greater<>>;
 template<typename T = int>
 T in() {T a; cin >> a; return a;}
 
-/***** MAIN *****/
+// Return "signed" in case of using "#define int long long"
 signed main() {
-  
+
   cout << "\n";
   return 0;
 }
-/***** MAIN *****/

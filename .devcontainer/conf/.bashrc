@@ -55,3 +55,11 @@ at-change () {
         echo Failed to open $1/main.cpp
     fi
 }
+
+at-tmp () {
+    # Generate temporary main file
+    file_to_copy=/workspaces/cpp-environment/template/template.cpp
+    file_to_generate=/workspaces/cpp-environment/main.cpp
+    \cp $file_to_copy $file_to_generate
+    code $file_to_generate
+}
