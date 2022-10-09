@@ -41,6 +41,7 @@ Some things to try:
 - `at`  
 -> `atcoder-tools`
 ### functions
+**※ This is a little bit outdated! Please see `.devcontainer/conf/.bashrc` for more detail.**
 - `at-gen`  
 Example: `at-gen abc200`  
 This should run following tasks.
