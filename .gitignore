@@ -332,4 +332,4 @@ ASALocalRun/
 # Build output for this sample
 *.out
 
-/main.cpp
+/main.*

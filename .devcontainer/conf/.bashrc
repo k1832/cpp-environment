@@ -59,37 +59,77 @@ get_id_from_url() {
 }
 
 at-gen () {
+    # Example:
+    # $ at-gen abc200 # For cpp
+    # $ at-gen abc200 py # For python
+
     contest_id=`get_id_from_url $1`
-    at gen $contest_id; at-open $contest_id
+    flags="--skip-existing-problems"
+
+    if [ $2 == "py" ]; then
+        flags+=' --lang=python --template=/workspaces/cpp-environment/template/template.py'
+    fi
+
+    at gen $flags $contest_id; at-open $contest_id $2
 }
 
 at-open () {
+    # Example:
+    # $ at-open abc200 # For cpp
+    # $ at-open abc200 py # For python
+
     contest_id=`get_id_from_url $1`
     contest_directory=/workspaces/cpp-environment/atcoder/$contest_id/
 
     # Sort in lexicographical order and get the first one as a first problem to open.
     first_problem=$(ls $contest_directory | sort | head -n 1)
     first_problem_path=${contest_directory}${first_problem}/
-    cd $first_problem_path; code ${first_problem_path}main.cpp
+
+    file_name=main.cpp
+    if [ $2 == "py" ]; then
+        file_name=main.py
+    fi
+    cd $first_problem_path; code ${first_problem_path}${file_name}
 }
 
 at-change () {
+    # Example (should be in contest directory!):
+    # $ at-change abc200 # For cpp
+    # $ at-change abc200 py # For python
+
     if [ -d ../$1 ]; then
         cd ../$1
     else
         cd ./$1
     fi
+
+    file_name=main.cpp
+    if [ $2 == "py" ]; then
+        file_name=main.py
+    fi
+
     if [ $? -eq 0 ]; then
-        code ./main.cpp && echo Successfully opened $1/main.cpp
+        code ./$file_name && echo Successfully opened $1/$file_name
     else
-        echo Failed to open $1/main.cpp
+        echo Failed to open $1/$file_name
     fi
 }
 
 at-tmp () {
-    # Generate temporary main file
-    file_to_copy=/workspaces/cpp-environment/template/template.cpp
-    file_to_generate=/workspaces/cpp-environment/main.cpp
+    # Example (should be in contest directory!):
+    # $ at-tmp cpp # For cpp
+    # $ at-tmp py # For python
+
+    extension=$1
+
+    file_to_copy=/workspaces/cpp-environment/template/template.$extension
+    if [ ! -f $file_to_copy ] ; then
+        echo $file_to_copy does not exit.
+        echo 'Usage: "at-tmp cpp" or "at-tmp py"'
+        return
+    fi
+    file_to_generate=/workspaces/cpp-environment/main.$extension
+
     \cp $file_to_copy $file_to_generate
     code $file_to_generate
 }
